@@ -1,75 +1,35 @@
-# Nuxt Minimal Starter
+# Avernique Interior
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Website frontend studio furniture dan interior, dibangun dengan Nuxt 3, Vue 3, TypeScript, dan Tailwind CSS. Delapan halaman: Beranda, Tentang, Produk, Koleksi, Layanan, Proyek, Galeri, dan Kontak.
 
-## Setup
-
-Make sure to install dependencies:
+## Menjalankan
 
 ```bash
-# npm
 npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
 npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
 
-## Production
-
-Build the application for production:
+## Pemeriksaan
 
 ```bash
-# npm
+npm run typecheck
 npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
+npm run test:e2e
 ```
 
-Locally preview production build:
+Pengujian browser membutuhkan server dev di `http://127.0.0.1:3000` dan Google Chrome. Playwright menguji seluruh route pada lebar 390, 768, dan 1440 piksel, filter katalog, lightbox, detail produk/proyek, menu mobile, serta slider perbandingan.
 
-```bash
-# npm
-npm run preview
+## Konten dan komponen
 
-# pnpm
-pnpm preview
+- `data/site.ts`: katalog 15 produk, kategori, koleksi, layanan, proyek, galeri, dan helper WhatsApp.
+- `components/`: komponen modular sesuai bagian PRD; nama auto-import mengikuti deduplikasi Nuxt (contoh `ProductHero`, `AboutHero`).
+- `assets/css/main.css`: desain responsif, palet brand, animasi ringan, dan aksesibilitas.
+- `public/images/`: foto ilustrasi lokal dan fallback SVG. Foto katalog bersifat ilustratif, bukan dokumentasi produk aktual.
+- Filter produk disimpan di query `?kategori=` agar tautan kategori dan koleksi dapat dibagikan.
+- Modal memakai elemen dialog native dengan focus trap, Escape, pengembalian fokus, dan penguncian scroll.
 
-# yarn
-yarn preview
+## Sebelum publikasi
 
-# bun
-bun run preview
-```
+Ganti nomor WhatsApp placeholder dalam `data/site.ts`; konfirmasi email, akun sosial, alamat studio, serta peta pada komponen kontak/footer. Ganti data dummy, testimoni ilustrasi, dan foto dengan aset brand. Perbandingan sebelum/sesudah adalah simulasi warna yang diberi keterangan, bukan dokumentasi renovasi. Font Google membutuhkan koneksi internet; tersedia fallback serif/sans-serif.
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+Tidak ada backend bisnis, database, autentikasi, keranjang, checkout, atau pembayaran. Nuxt menyediakan rendering frontend bawaan; `npm run generate` tersedia untuk deployment statis.
